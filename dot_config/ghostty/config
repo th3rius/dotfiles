@@ -1,0 +1,4 @@
+font-family = Zed Mono
+shell-integration-features = true
+shell-integration = zsh
+
