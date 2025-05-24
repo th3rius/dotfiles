@@ -1,4 +1,5 @@
-font-family = Zed Mono
+font-family = Iosevka
 shell-integration-features = true
 shell-integration = zsh
+theme = Adwaita Dark
 
