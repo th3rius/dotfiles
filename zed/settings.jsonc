@@ -20,13 +20,13 @@
     "dark": "One Dark"
   },
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "zed"
   },
   "agent": {
     "model_parameters": [],
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3.5-sonnet"
+      "provider": "zed.dev",
+      "model": "claude-3-7-sonnet-thinking-latest"
     },
     "version": "2"
   },
