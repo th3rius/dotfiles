@@ -3,7 +3,7 @@
 -- Add any additional options here
 
 -- Spellcheck languages
--- vim.opt.spelllang = { "en", "pt-BR" }
+vim.opt.spelllang = { "en_US", "pt_BR" }
 
 -- Disables LazyVim auto format.
 vim.g.autoformat = false
