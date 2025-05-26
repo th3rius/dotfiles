@@ -6,6 +6,7 @@
   "base_keymap": "JetBrains",
   "relative_line_numbers": true,
   "autosave": "on_focus_change",
+  "format_on_save": "language_server",
   "theme": {
     "mode": "system",
     "light": "One Light",
