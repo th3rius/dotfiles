@@ -1,0 +1,18 @@
+[user]
+	name = Gabriel de Oliveira
+	email = gabrielhk3@gmail.com
+[push]
+	autoSetupRemote = true
+[core]
+	pager = delta
+	excludesFile = ~/.gitignore
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictStyle = zdiff3
+[pull]
+	rebase = true
+[rebase]
+	autosquash = true
