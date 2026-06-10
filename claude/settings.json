@@ -1,0 +1,57 @@
+{
+  "model": "claude-fable-5[1m]",
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
+    "DISABLE_AUTOUPDATER": "1"
+  },
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:*.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:registry.npmjs.com)",
+      "WebFetch(domain:sonarqube.clinicorp.tech)",
+      "Bash(caffeinate *)"
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.js"
+  },
+  "enabledPlugins": {
+    "github@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "sentry@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "atlassian@claude-plugins-official": true,
+    "chrome-devtools-mcp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true,
+    "expo@claude-plugins-official": true,
+    "session-report@claude-plugins-official": true,
+    "prisma@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "playground@claude-plugins-official": false,
+    "mcp-server-dev@claude-plugins-official": true,
+    "terraform@claude-plugins-official": true
+  },
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true
+  },
+  "feedbackSurveyRate": 0,
+  "effortLevel": "high",
+  "promptSuggestionEnabled": false,
+  "tui": "fullscreen",
+  "theme": "auto",
+  "editorMode": "vim",
+  "skipAutoPermissionPrompt": true
+}

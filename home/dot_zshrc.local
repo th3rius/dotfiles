@@ -1,0 +1,69 @@
+alias nv='nvim'
+alias pn='pnpm'
+
+export LESS='-R --use-color -Dd+r$Du+b$'                                     # enable colors in less
+export MANWIDTH=80
+export EDITOR=nvim
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
+
+path+="$ANDROID_HOME/emulator"
+path+="$ANDROID_HOME/platform-tools"
+path+="$HOME/bin"
+path+="$HOME/.local/bin"
+path+="$HOME/.local/share/sonarqube-cli/bin"
+
+source <(fzf --zsh)
+source $ZSH_LIBRARY/zsh-autosuggestions/zsh-autosuggestions.zsh                               # zsh-autosuggestions
+source $ZSH_LIBRARY/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh                       # zsh-syntax-highlighting
+source $ZSH_LIBRARY/zsh-history-substring-search/zsh-history-substring-search.zsh             # zsh-history-substring-search
+source $ZSH_LIBRARY/google-cloud-sdk/completion.zsh.inc
+source $ZSH_LIBRARY/google-cloud-sdk/path.zsh.inc
+
+eval "$(zoxide init zsh)" # zoxide
+eval "$(direnv hook zsh)" # direnv
+
+# ngrok completions
+if command -v ngrok &>/dev/null; then
+	eval "$(ngrok completion)"
+fi
+
+# vi keys
+if [[ -z "$NVIM" ]]; then
+  bindkey -v
+fi
+
+# fix man line breaks when the terminal is too small
+man() {
+	local width=$(tput cols)
+	[ $width -gt $MANWIDTH ] && width=$MANWIDTH
+	env MANWIDTH=$width \
+		man "$@"
+}
+
+rationalise-dot() {
+  if [[ $LBUFFER = *.. ]]; then
+    LBUFFER+=/..
+  else
+    LBUFFER+=.
+  fi
+}
+
+pty() {
+	zpty pty-${UID} ${1+$@}
+	if [[ ! -t 1 ]];then
+		setopt local_traps
+		trap '' INT
+	fi
+	zpty -r pty-${UID}
+	zpty -d pty-${UID}
+}
+
+ptyless() {
+	pty $@ | less
+}
+
+restart () {
+  exec $SHELL $SHELL_ARGS "$@"
+}
+
+# vim: ft=sh

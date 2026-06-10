@@ -10,3 +10,5 @@ vim.g.autoformat = false
 
 -- LSP auto detection can be annoying on messy projects.
 vim.g.root_spec = { { ".git", "lua" }, "cwd" }
+
+vim.o.sh = 'zsh -l'
