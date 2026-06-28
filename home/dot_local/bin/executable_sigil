@@ -1,0 +1,20 @@
+#!/usr/bin/env zx
+
+const words = await stdin();
+const ruledOutChars = new Set(["a", "e", "i", "o", "u"]);
+const sigil = [];
+
+for (const char of words) {
+  if (/[a-zA-Z]/.test(char)) {
+    if (!ruledOutChars.has(char)) {
+      sigil.push(char);
+      ruledOutChars.add(char);
+    }
+  } else {
+    sigil.push(char);
+  }
+}
+
+echo(sigil.join("").toUpperCase());
+
+// vim: ft=js
