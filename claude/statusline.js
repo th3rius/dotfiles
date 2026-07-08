@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 const { execFileSync } = require("child_process");
 const path = require("path");
 
@@ -13,7 +14,6 @@ const C = {
 
 const BAR_COLORS = { ctx: C.cyan, "5h": C.yellow, "7d": C.magenta };
 
-// Highest usage among context window and rate limits; earlier entries win ties.
 function worstUsage(data) {
   return [
     { label: "ctx", value: data.context_window?.used_percentage || 0 },

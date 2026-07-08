@@ -1,5 +1,4 @@
 {
-  "model": "claude-fable-5[1m]",
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
     "DISABLE_AUTOUPDATER": "1"
@@ -41,7 +40,9 @@
     "pr-review-toolkit@claude-plugins-official": true,
     "playground@claude-plugins-official": false,
     "mcp-server-dev@claude-plugins-official": true,
-    "terraform@claude-plugins-official": true
+    "terraform@claude-plugins-official": true,
+    "remember@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true
   },
   "sandbox": {
     "enabled": true,
