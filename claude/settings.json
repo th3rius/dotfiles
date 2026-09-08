@@ -1,6 +1,5 @@
 {
   "env": {
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
     "DISABLE_AUTOUPDATER": "1"
   },
   "permissions": {
@@ -11,8 +10,13 @@
       "WebFetch(domain:registry.npmjs.com)",
       "WebFetch(domain:sonarqube.clinicorp.tech)",
       "Bash(caffeinate *)"
+    ],
+    "ask": [
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   },
+  "model": "fable[1m]",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.js"
@@ -38,10 +42,8 @@
     "figma@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
-    "playground@claude-plugins-official": false,
     "mcp-server-dev@claude-plugins-official": true,
     "terraform@claude-plugins-official": true,
-    "remember@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true
   },
   "sandbox": {
@@ -49,10 +51,47 @@
     "failIfUnavailable": true
   },
   "feedbackSurveyRate": 0,
+  "feedbackDrafts": "off",
   "effortLevel": "high",
   "promptSuggestionEnabled": false,
   "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
   "theme": "auto",
   "editorMode": "vim",
-  "skipAutoPermissionPrompt": true
+  "verbose": false,
+  "switchModelsOnFlag": true,
+  "skipAutoPermissionPrompt": true,
+  "autoMode": {
+    "soft_deny": [
+      "$defaults",
+      "Bash(bit tag:*) — scoped to clinicorp.database-connection/* releases in this repo, since `bit tag` publishes a new package version and should get explicit confirmation rather than auto-approval"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: Clinicorp (github.com/clinicorp)",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: private (clinicorp/database-connection, verified via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured",
+      "**Default / protected branches**: default `master`; ruleset `Clinicorp HML CI/CD Rule` active; protected branch `homologation`",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Source control**: The trusted repo (clinicorp/database-connection) and its remote origin (github.com:clinicorp/database-connection.git) only",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: Bit workspace (component publishing via `bit tag`) for this repo (clinicorp.database-connection/*)",
+      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment (hyphen/underscore/dot-delimited); homologation branch is protected per branch-protection info above",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (Clinicorp backend components; Bit workspace release tagging)",
+      "**Trusted repo**: clinicorp/database-connection (private) — the git repository the agent started in and its origin remote",
+      "**Org-specific CLIs**: `bit` (Bit workspace component tag/publish), `flyctl`/`fly` (seen frequently in shell history, not confirmed to this repo)",
+      "**Team emails** (for ticket filtering / audience context): gabriel.oliveira@clinicorp.com, cassiano.siduoski@clinicorp.com, kenzo.sato@clinicorp.com, gabriel.nakaoka@clinicorp.com, matheus.fritzke@clinicorp.com, khaee.ribeiro@clinicorp.com, germano.gascho@clinicorp.com"
+    ]
+  },
+  "defaultMode": "auto"
 }

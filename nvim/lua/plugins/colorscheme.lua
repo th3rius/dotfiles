@@ -1,9 +1,9 @@
 return {
   {
     "folke/tokyonight.nvim",
-    opts = {
-      transparent = true,
-    },
+    -- opts = {
+    --   transparent = true,
+    -- },
   },
   {
     "LazyVim/LazyVim",

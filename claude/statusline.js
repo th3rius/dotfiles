@@ -31,23 +31,6 @@ function usageBar({ label, value }) {
   return `${BAR_COLORS[label]}${bar} ${C.white}${value}%${C.reset} ${C.dim}(${label})${C.reset}`;
 }
 
-function formatDuration(ms) {
-  const secs = Math.floor(ms / 1000);
-  const mins = Math.floor(secs / 60);
-  const hours = Math.floor(mins / 60);
-  const days = Math.floor(hours / 24);
-
-  if (hours >= 24) {
-    return `${days}d ${hours % 24}h`;
-  }
-
-  if (mins >= 60) {
-    return `${hours}h ${mins % 60}m`;
-  }
-
-  return `${mins}m ${secs % 60}s`;
-}
-
 function gitBranch() {
   try {
     return execFileSync("git", ["branch", "--show-current"], {
@@ -62,15 +45,10 @@ function gitBranch() {
 function render(data) {
   const model = data.model.display_name;
   const dir = path.basename(data.workspace.current_dir);
-  const cost = data.cost?.total_cost_usd || 0;
-  const duration = formatDuration(data.cost?.total_duration_ms || 0);
   const branch = gitBranch();
 
   console.log(
-    `${C.cyan}[${model}]${C.reset} 📁 ${dir}${branch ? ` | 🌿 ${branch}` : ""}`,
-  );
-  console.log(
-    `${usageBar(worstUsage(data))} | ${C.yellow}$${cost.toFixed(2)}${C.reset} | ⏱️ ${duration}`,
+    `${C.cyan}[${model}]${C.reset} 📁 ${dir}${branch ? ` 🌿 ${branch}` : ""} | ${usageBar(worstUsage(data))}`,
   );
 }
 

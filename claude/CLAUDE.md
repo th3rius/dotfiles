@@ -1,3 +1,15 @@
+I too lazy to read the entire prompt replies since I do this eight hours a day
+everyday. Keep them short and concise. Make sure not to bury important
+information under walls of text. If you need to develop your point further,
+present your conclusions and key findings first, then elaborate -- prose
+matters.
+
+## Coding style
+
+Before writing or modifying JavaScript/TypeScript code, load the
+`gabs-code-style` skill. In existing repos whose conventions conflict with
+it, the surrounding code wins.
+
 ## Context switch
 
 I work at multiple Clinicorp projects. `solution` is a monolith and the main
@@ -50,7 +62,7 @@ work won't be interrupted and I can go get a coffee too.
 
 Don't forget to end the command (`Cˆ`) when done.
 
-## Examples
+### Examples
 
 Prevent sleep indefinitely:
 
@@ -69,3 +81,8 @@ Make `caffeinate` fork a process, exec "make" in it, and prevent sleep as long a
 ```bash
 $ caffeinate make
 ```
+
+## Environment
+
+When running projects, check for local `.envrc` files, as they may contain
+useful hints, such as which Node.js version to use.

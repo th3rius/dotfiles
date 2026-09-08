@@ -12,3 +12,8 @@ vim.g.autoformat = false
 vim.g.root_spec = { { ".git", "lua" }, "cwd" }
 
 vim.o.sh = 'zsh -l'
+
+-- Terminal title
+vim.opt.title = true
+local nvim_icon = vim.fn.nr2char(0xe62b) -- nf-custom-vim
+vim.opt.titlestring = nvim_icon .. " %{fnamemodify(getcwd(), ':t')}"
